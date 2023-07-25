@@ -6,19 +6,31 @@ Command: npx gltfjsx@6.2.10 public/models/blck.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';
+import { useCustomization } from '../contexts/Customization';
 
 export function Blck(props) {
-  const { nodes, materials } = useGLTF('./models/blck.glb')
+  const { nodes } = useGLTF('./models/blck.glb')
+  const { materials, animations } = useGLTF('./models/SceneBlock.glb')
   const groupRef = useRef();
+  const { section, blockColor } = props;
+ 
 
   useFrame((state, delta) => {
-    //groupRef.current.rotation.x += 0.01
-    groupRef.current.rotation.y += 0.02 
+    if (section === 0) {
+      groupRef.current.rotation.x = groupRef.current.rotation.x * 0.9
+      groupRef.current.rotation.y += 0.01
+    }
+    if (section === 1) {
+      groupRef.current.rotation.x += 0.009
+      groupRef.current.rotation.y += 0.01
+    }
   })
 
   return (
     <group {...props} dispose={null} ref={groupRef}>
-      <mesh geometry={nodes['3d_Final'].geometry} material={nodes['3d_Final'].material} />
+      <mesh geometry={nodes['3d_Final'].geometry} material={materials['Plastic.003']}>
+        <meshStandardMaterial color={blockColor.color} roughness={0.16} />
+      </mesh>
     </group>
   )
 }

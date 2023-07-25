@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Configurator from "./Configurator";
 
 const Section = (props) => {
   const { children } = props;
@@ -27,11 +28,12 @@ const Section = (props) => {
   );
 };
 
-export const Interface = () => {
+export const Interface = (props) => {
+  const{ blockColors, blockColor, setBlockColor } = props;
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
-      <SkillsSection />
+      <SkillsSection blockColors={blockColors} blockColor={blockColor} setBlockColor={setBlockColor}/>
       <ContactSection />
     </div>
   );
@@ -43,7 +45,7 @@ const AboutSection = () => {
       <h1 className="text-6xl font-extrabold ml-24 leading-snug">
         Hi, I'm
         <br />
-        <span className="px-1 italic bg-white ">Kiddy Block</span>
+        <span className="px-1 italic bg-yellow-300 ">Kiddy Block</span>
       </h1>
       <motion.p
         className="mt-4 text-lg ml-24 text-gray-600"
@@ -123,99 +125,11 @@ const languages = [
   },
 ];
 
-const SkillsSection = () => {
+const SkillsSection = (props) => {
+  const{ blockColors, blockColor, setBlockColor } = props;
   return (
     <Section>
-      <motion.div whileInView={"visible"}>
-        <h2 className="text-5xl font-bold">Skills</h2>
-        <div className="mt-8 space-y-4 ">
-          {skills.map((skill, index) => (
-            <div className="w-64" key={index}>
-              <motion.h3
-                className="text-xl font-bold text-gray-800"
-                initial={{
-                  opacity: 0,
-                }}
-                variants={{
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      duration: 1,
-                      delay: 1 + index * 0.2,
-                    },
-                  },
-                }}
-              >
-                {skill.title}
-              </motion.h3>
-              <div className="w-full h-2 mt-2 bg-gray-200 rounded-full">
-                <motion.div
-                  className="h-full bg-indigo-500 rounded-full "
-                  style={{ width: `${skill.level}%` }}
-                  initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 1 + index * 0.2,
-                      },
-                    },
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-        <div>
-          <h2 className="mt-10 text-5xl font-bold">Languages</h2>
-          <div className="mt-8 space-y-4 ">
-            {languages.map((lng, index) => (
-              <div className="w-64" key={index}>
-                <motion.h3
-                  className="text-xl font-bold text-gray-800"
-                  initial={{
-                    opacity: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 2 + index * 0.2,
-                      },
-                    },
-                  }}
-                >
-                  {lng.title}
-                </motion.h3>
-                <div className="w-full h-2 mt-2 bg-gray-200 rounded-full">
-                  <motion.div
-                    className="h-full bg-indigo-500 rounded-full "
-                    style={{ width: `${lng.level}%` }}
-                    initial={{
-                      scaleX: 0,
-                      originX: 0,
-                    }}
-                    variants={{
-                      visible: {
-                        scaleX: 1,
-                        transition: {
-                          duration: 1,
-                          delay: 2 + index * 0.2,
-                        },
-                      },
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+       <Configurator blockColors={blockColors} blockColor={blockColor} setBlockColor={setBlockColor}/>
     </Section>
   );
 };
