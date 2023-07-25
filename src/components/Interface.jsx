@@ -40,13 +40,13 @@ export const Interface = () => {
 const AboutSection = () => {
   return (
     <Section>
-      <h1 className="text-6xl font-extrabold leading-snug">
+      <h1 className="text-6xl font-extrabold ml-24 leading-snug">
         Hi, I'm
         <br />
-        <span className="px-1 italic bg-white">Kiddy Block</span>
+        <span className="px-1 italic bg-white ">Kiddy Block</span>
       </h1>
       <motion.p
-        className="mt-4 text-lg text-gray-600"
+        className="mt-4 text-lg ml-24 text-gray-600"
         initial={{
           opacity: 0,
           y: 25,
@@ -65,7 +65,7 @@ const AboutSection = () => {
         learning how to build 3D apps
       </motion.p>
       <motion.button
-        className={`bg-[rgb(228,36,4)] text-white py-4 px-8 
+        className={`bg-[rgb(228,36,4)] text-white ml-24 py-4 px-8 
       rounded-lg font-bold text-lg mt-16`}
         initial={{
           opacity: 0,
