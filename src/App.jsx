@@ -71,7 +71,7 @@ function App() {
             </Scroll>
 
             <Scroll html>
-              <Interface blockColors={blockColors} blockColor={blockColor} setBlockColor={setBlockColor} />
+              <Interface setSection={setSection} blockColors={blockColors} blockColor={blockColor} setBlockColor={setBlockColor} />
             </Scroll>
           </ScrollControls>
         </Canvas>

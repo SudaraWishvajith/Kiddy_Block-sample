@@ -29,17 +29,18 @@ const Section = (props) => {
 };
 
 export const Interface = (props) => {
-  const{ blockColors, blockColor, setBlockColor } = props;
+  const{ blockColors, blockColor, setBlockColor, setSection } = props;
   return (
     <div className="flex flex-col items-center w-screen">
-      <AboutSection />
+      <AboutSection setSection={setSection}/>
       <SkillsSection blockColors={blockColors} blockColor={blockColor} setBlockColor={setBlockColor}/>
       <ContactSection />
     </div>
   );
 };
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+ const {setSection} = props;
   return (
     <Section>
       <h1 className="text-6xl font-extrabold ml-24 leading-snug">
@@ -81,8 +82,9 @@ const AboutSection = () => {
           duration: 1,
           delay: 2,
         }}
+        onClick={() => setSection(1)}
       >
-        Button
+        Set Color
       </motion.button>
     </Section>
   );
