@@ -62,9 +62,9 @@ const AboutSection = () => {
           delay: 1.5,
         }}
       >
-        I like to try new things
+        The Building Block Like No Other!
         <br />
-        learning how to build 3D apps
+        Let's Build Models
       </motion.p>
       <motion.button
         className={`bg-[rgb(228,36,4)] text-white ml-24 py-4 px-8 
@@ -82,7 +82,7 @@ const AboutSection = () => {
           delay: 2,
         }}
       >
-        Contact me
+        Button
       </motion.button>
     </Section>
   );
