@@ -1,10 +1,3 @@
-# r3f-vite-starter
-A boilerplate to build R3F projects
+Sample made web application made using threeJS
 
-```
-yarn
-yarn dev
-```
-
-
-![image](https://user-images.githubusercontent.com/6551176/221732091-23ee52cb-4150-42fa-b998-43628d7a6b0d.png)
+https://github.com/SudaraWishvajith/PS4-react/assets/93005479/c64e9624-97c7-43e7-8490-3bd2b12a9236
